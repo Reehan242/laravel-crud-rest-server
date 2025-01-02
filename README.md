@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# REST Server CRUD with Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sebuah aplikasi REST Server CRUD berbasis Laravel yang dirancang untuk pengelolaan post sederhana dengan fitur utama seperti create, read, update, dan delete post melalui API client. Aplikasi ini juga menyediakan dokumentasi penggunaan API dan halaman sederhana untuk menampilkan daftar post.
 
-## About Laravel
+## Fitur Utama
+- REST API CRUD
+- Endpoint untuk membuat, membaca, mengubah, dan menghapus post.
+- Dokumentasi API
+- Halaman khusus untuk menjelaskan cara menggunakan API, termasuk endpoint, metode HTTP, dan parameter yang diperlukan.
+- Halaman Post Viewer
+- Tampilan sederhana untuk menampilkan daftar post yang ada di database.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Teknologi yang Digunakan
+- **Framework** : Laravel 11
+- **Database**: MySQL
+- **Frontend**: Bootstrap 5
+- **Pengujian**: Postman
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Cara Setup Projek Agar Bisa Dijalankan
+- Pastikan sudah menginstal Composer dan PHP.
+- Clone atau download proyek ini:
+```git clone https://github.com/Reehan242/laravel-crud-rest-server.git```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Masuk ke folder proyek:
+```cd laravel-crud-rest-server```
 
-## Learning Laravel
+- Install dependency dengan Composer:
+```composer install```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Ubah nama file .env.example menjadi .env:
+```mv .env.example .env```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Konfigurasi file .env untuk database Anda (MySQL):
+```
+DB_DATABASE: Nama database Anda.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+DB_USERNAME: Username database.
 
-## Laravel Sponsors
+DB_PASSWORD: Password database.
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Migrasikan database:
+```php artisan migrate```
 
-### Premium Partners
+- Jalankan server lokal:
+```php artisan serve```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- Akses aplikasi Anda melalui browser di http://localhost:8000.
 
-## Contributing
+## Endpoint API
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Berikut adalah daftar endpoint untuk mengelola post:**
 
-## Code of Conduct
+``GET /api/posts`` Mendapatkan semua post.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+``GET /api/posts/{id}`` Mendapatkan post berdasarkan ID.
 
-## Security Vulnerabilities
+``POST /api/posts`` Menambahkan post baru.
+Parameter:
+- title (string): Judul post.
+- body (string): Isi post.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+``PUT /api/posts/{id}`` Mengupdate post berdasarkan ID.
+Parameter:
+- title (string): Judul post.
+- body (string): Isi post.
 
-## License
+``DELETE /api/posts/{id}`` Menghapus post berdasarkan ID.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Catatan Tambahan
+
+Pastikan server MySQL aktif dan dapat diakses.
+
+Gunakan tool seperti Postman atau cURL untuk pengujian API.
+
+Dokumentasi API tersedia di halaman khusus pada aplikasi.
+
+Selamat menggunakan aplikasi REST Server CRUD ini!
